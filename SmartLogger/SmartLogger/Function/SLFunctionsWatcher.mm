@@ -450,11 +450,6 @@ extern "C" void WatcherSetup() {
     UNLOCK;
 }
 
-- (void)watchClass:(Class)cls selector:(SEL)selector
-{
-    
-}
-
 - (void)onWatchHit:(ThreadCallStack *)cs args:(arg_list)args
 {
     const int hitIndex = cs->index;

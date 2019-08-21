@@ -100,7 +100,7 @@
 
 - (BOOL)isOnGlobalLoggingQueue
 {
-    return (dispatch_get_specific(GlobalLoggingQueueIdentityKey) != NULL);
+    return (dispatch_get_specific(SLGlobalLoggingQueueIdentityKey) != NULL);
 }
 
 - (BOOL)isOnInternalLoggerQueue

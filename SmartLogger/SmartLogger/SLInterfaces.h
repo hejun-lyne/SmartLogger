@@ -76,14 +76,19 @@ typedef NSString * _Nullable(^SLLogArchiveCompressBlock)(NSString *logFile);
 @protocol SLInterfaces <NSObject>
 /// In release will stop tty appender
 @property (class, nonatomic, assign) BOOL isRelease;
-/// Configuration
-@property (nonatomic, class) SLFileLoggerConfig fileLoggerConfig;
 /// Directory storing logs
 @property (nonatomic, class, readonly) NSString *logsDirectory;
 /// All data files
 @property (nonatomic, class, readonly) NSArray<NSString *> *logFiles;
 /// Log file compress block
 @property (class, nonatomic, copy) SLLogArchiveCompressBlock compressBlock;
+
+/**
+ * Config file logger
+ *  @param fileLoggerConfig Configuration
+ *  @see SLFileLoggerConfig
+ */
++ (void)setFileLoggerConfig:(SLFileLoggerConfig)fileLoggerConfig;
 
 /**
  * Appending log message

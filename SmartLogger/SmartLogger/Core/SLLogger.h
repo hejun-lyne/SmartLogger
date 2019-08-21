@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-static void * const GlobalLoggingQueueIdentityKey = (void *)&GlobalLoggingQueueIdentityKey;
+static void * const SLGlobalLoggingQueueIdentityKey = (void *)&SLGlobalLoggingQueueIdentityKey;
 
 @interface SLLogger : NSObject<SLInterfaces>
 /**

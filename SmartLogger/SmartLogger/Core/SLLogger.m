@@ -28,7 +28,7 @@
     NSMutableArray<SLLogMessage *> *messagesQueue;
     NSLock *queueLock;
 }
-@dynamic logsDirectory, logFiles, fileLoggerConfig, compressBlock, isRelease;
+@dynamic logsDirectory, logFiles, compressBlock, isRelease;
 
 + (NSString *)logsDirectory
 {
@@ -169,8 +169,8 @@ static NSUInteger _numProcessors;
         _loggingQueue = dispatch_queue_create("smartlogger.logger", NULL);
         _loggingGroup = dispatch_group_create();
         
-        void *nonNullValue = GlobalLoggingQueueIdentityKey; // Whatever, just not null
-        dispatch_queue_set_specific(_loggingQueue, GlobalLoggingQueueIdentityKey, nonNullValue, NULL);
+        void *nonNullValue = SLGlobalLoggingQueueIdentityKey; // Whatever, just not null
+        dispatch_queue_set_specific(_loggingQueue, SLGlobalLoggingQueueIdentityKey, nonNullValue, NULL);
         
         _queueSemaphore = dispatch_semaphore_create(_MAX_QUEUE_SIZE);
         _numProcessors = MAX([NSProcessInfo processInfo].processorCount, (NSUInteger) 1);
@@ -417,7 +417,7 @@ static NSUInteger _numProcessors;
         }
     }
     
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
+    NSAssert(dispatch_get_specific(SLGlobalLoggingQueueIdentityKey),
              @"This method should only be run on the logging thread/queue");
     
     dispatch_queue_t loggingQueue = NULL;
@@ -450,7 +450,7 @@ static NSUInteger _numProcessors;
 
 - (void)mf_removeAppender:(id <SLLogAppender>)appender
 {
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
+    NSAssert(dispatch_get_specific(SLGlobalLoggingQueueIdentityKey),
              @"This method should only be run on the logging thread/queue");
     
     SLLogAppenderNode *appenderNode = nil;
@@ -479,7 +479,7 @@ static NSUInteger _numProcessors;
 
 - (void)mf_removeAllAppenders
 {
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
+    NSAssert(dispatch_get_specific(SLGlobalLoggingQueueIdentityKey),
              @"This method should only be run on the logging thread/queue");
     
     for (SLLogAppenderNode *loggerAppender in self.appenders) {
@@ -495,7 +495,7 @@ static NSUInteger _numProcessors;
 
 - (NSArray *)mf_allAppenders
 {
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
+    NSAssert(dispatch_get_specific(SLGlobalLoggingQueueIdentityKey),
              @"This method should only be run on the logging thread/queue");
     
     NSMutableArray *theAppenders = [NSMutableArray new];
@@ -509,7 +509,7 @@ static NSUInteger _numProcessors;
 
 - (NSArray *)mf_allAppendersWithLevel
 {
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
+    NSAssert(dispatch_get_specific(SLGlobalLoggingQueueIdentityKey),
              @"This method should only be run on the logging thread/queue");
     
     NSMutableArray *theAppendersWithLevel = [NSMutableArray new];
@@ -523,7 +523,7 @@ static NSUInteger _numProcessors;
 
 - (void)mf_log:(SLLogMessage *)logMessage
 {
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
+    NSAssert(dispatch_get_specific(SLGlobalLoggingQueueIdentityKey),
              @"This method should only be run on the logging thread/queue");
     
     if (_numProcessors > 1) {
