@@ -28,17 +28,17 @@
 		79084F0B2306AABA00AB4E92 /* SLLogFileAppender.m in Sources */ = {isa = PBXBuildFile; fileRef = 79084F092306AABA00AB4E92 /* SLLogFileAppender.m */; };
 		79084F0E2306B29D00AB4E92 /* SLLogAppenderNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 79084F0C2306B29D00AB4E92 /* SLLogAppenderNode.h */; };
 		79084F0F2306B29D00AB4E92 /* SLLogAppenderNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 79084F0D2306B29D00AB4E92 /* SLLogAppenderNode.m */; };
+		795F7FCC231385C000C7A50C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 795F7FC7231385C000C7A50C /* LICENSE */; };
+		795F7FCD231385C000C7A50C /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 795F7FC8231385C000C7A50C /* fishhook.c */; };
+		795F7FCE231385C000C7A50C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 795F7FC9231385C000C7A50C /* README.md */; };
+		795F7FCF231385C000C7A50C /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 795F7FCA231385C000C7A50C /* fishhook.h */; };
+		795F7FD0231385C000C7A50C /* fishhook.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 795F7FCB231385C000C7A50C /* fishhook.podspec */; };
 		79FF5412230A823C00B9D28F /* SLFunctionsWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 79FF5410230A823C00B9D28F /* SLFunctionsWatcher.h */; };
 		79FF5413230A823C00B9D28F /* SLFunctionsWatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79FF5411230A823C00B9D28F /* SLFunctionsWatcher.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		79FF5416230A83A300B9D28F /* hashmap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79FF5414230A83A300B9D28F /* hashmap.mm */; };
 		79FF5417230A83A300B9D28F /* hashmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 79FF5415230A83A300B9D28F /* hashmap.h */; };
 		79FF541A230A8B3600B9D28F /* blocks.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79FF5418230A8B3600B9D28F /* blocks.mm */; };
 		79FF541B230A8B3600B9D28F /* blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 79FF5419230A8B3600B9D28F /* blocks.h */; };
-		79FF5423230A919F00B9D28F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 79FF541E230A919F00B9D28F /* LICENSE */; };
-		79FF5424230A919F00B9D28F /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 79FF541F230A919F00B9D28F /* fishhook.c */; };
-		79FF5425230A919F00B9D28F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 79FF5420230A919F00B9D28F /* README.md */; };
-		79FF5426230A919F00B9D28F /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 79FF5421230A919F00B9D28F /* fishhook.h */; };
-		79FF5427230A919F00B9D28F /* fishhook.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 79FF5422230A919F00B9D28F /* fishhook.podspec */; };
 		79FF542D230AA92C00B9D28F /* ARM64Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 79FF542C230AA92C00B9D28F /* ARM64Types.h */; };
 /* End PBXBuildFile section */
 
@@ -70,17 +70,17 @@
 		79084F092306AABA00AB4E92 /* SLLogFileAppender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLogFileAppender.m; sourceTree = "<group>"; };
 		79084F0C2306B29D00AB4E92 /* SLLogAppenderNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLogAppenderNode.h; sourceTree = "<group>"; };
 		79084F0D2306B29D00AB4E92 /* SLLogAppenderNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLogAppenderNode.m; sourceTree = "<group>"; };
+		795F7FC7231385C000C7A50C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		795F7FC8231385C000C7A50C /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		795F7FC9231385C000C7A50C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		795F7FCA231385C000C7A50C /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		795F7FCB231385C000C7A50C /* fishhook.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fishhook.podspec; sourceTree = "<group>"; };
 		79FF5410230A823C00B9D28F /* SLFunctionsWatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLFunctionsWatcher.h; sourceTree = "<group>"; };
 		79FF5411230A823C00B9D28F /* SLFunctionsWatcher.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SLFunctionsWatcher.mm; sourceTree = "<group>"; };
 		79FF5414230A83A300B9D28F /* hashmap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hashmap.mm; sourceTree = "<group>"; };
 		79FF5415230A83A300B9D28F /* hashmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hashmap.h; sourceTree = "<group>"; };
 		79FF5418230A8B3600B9D28F /* blocks.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = blocks.mm; sourceTree = "<group>"; };
 		79FF5419230A8B3600B9D28F /* blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blocks.h; sourceTree = "<group>"; };
-		79FF541E230A919F00B9D28F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		79FF541F230A919F00B9D28F /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
-		79FF5420230A919F00B9D28F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		79FF5421230A919F00B9D28F /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
-		79FF5422230A919F00B9D28F /* fishhook.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fishhook.podspec; sourceTree = "<group>"; };
 		79FF542C230AA92C00B9D28F /* ARM64Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARM64Types.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +114,7 @@
 		79084EBF230536DF00AB4E92 /* SmartLogger */ = {
 			isa = PBXGroup;
 			children = (
-				79FF541C230A919F00B9D28F /* Third */,
+				795F7FC6231385C000C7A50C /* fishhook */,
 				79084EC92305381E00AB4E92 /* Core */,
 				79084ECB2305381E00AB4E92 /* Function */,
 				79084ECA2305381E00AB4E92 /* Network */,
@@ -136,7 +136,6 @@
 		79084EC92305381E00AB4E92 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				79FF540A230A40A700B9D28F /* Cache */,
 				79084EE62306883900AB4E92 /* Appender */,
 				79084EE72306883900AB4E92 /* Format */,
 				79084EE2230683AA00AB4E92 /* SLLogger.h */,
@@ -209,29 +208,14 @@
 			path = FileLogger;
 			sourceTree = "<group>";
 		};
-		79FF540A230A40A700B9D28F /* Cache */ = {
+		795F7FC6231385C000C7A50C /* fishhook */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Cache;
-			sourceTree = "<group>";
-		};
-		79FF541C230A919F00B9D28F /* Third */ = {
-			isa = PBXGroup;
-			children = (
-				79FF541D230A919F00B9D28F /* fishhook */,
-			);
-			path = Third;
-			sourceTree = "<group>";
-		};
-		79FF541D230A919F00B9D28F /* fishhook */ = {
-			isa = PBXGroup;
-			children = (
-				79FF541E230A919F00B9D28F /* LICENSE */,
-				79FF541F230A919F00B9D28F /* fishhook.c */,
-				79FF5420230A919F00B9D28F /* README.md */,
-				79FF5421230A919F00B9D28F /* fishhook.h */,
-				79FF5422230A919F00B9D28F /* fishhook.podspec */,
+				795F7FC7231385C000C7A50C /* LICENSE */,
+				795F7FC8231385C000C7A50C /* fishhook.c */,
+				795F7FC9231385C000C7A50C /* README.md */,
+				795F7FCA231385C000C7A50C /* fishhook.h */,
+				795F7FCB231385C000C7A50C /* fishhook.podspec */,
 			);
 			path = fishhook;
 			sourceTree = "<group>";
@@ -254,8 +238,8 @@
 				79084EFD2306A2BD00AB4E92 /* SLLogFileInfo.h in Headers */,
 				79084F0E2306B29D00AB4E92 /* SLLogAppenderNode.h in Headers */,
 				79084EEF23068ECC00AB4E92 /* SLLogQueueFormatter.h in Headers */,
+				795F7FCF231385C000C7A50C /* fishhook.h in Headers */,
 				79084EF42306990B00AB4E92 /* SLAbstractLogAppender.h in Headers */,
-				79FF5426230A919F00B9D28F /* fishhook.h in Headers */,
 				79084EC2230536DF00AB4E92 /* SmartLogger.h in Headers */,
 				79FF5417230A83A300B9D28F /* hashmap.h in Headers */,
 				79084EE4230683AA00AB4E92 /* SLLogger.h in Headers */,
@@ -319,9 +303,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79FF5425230A919F00B9D28F /* README.md in Resources */,
-				79FF5427230A919F00B9D28F /* fishhook.podspec in Resources */,
-				79FF5423230A919F00B9D28F /* LICENSE in Resources */,
+				795F7FCE231385C000C7A50C /* README.md in Resources */,
+				795F7FD0231385C000C7A50C /* fishhook.podspec in Resources */,
+				795F7FCC231385C000C7A50C /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +324,7 @@
 				79FF5416230A83A300B9D28F /* hashmap.mm in Sources */,
 				79084F032306A4BC00AB4E92 /* SLDefaultLogFileManager.m in Sources */,
 				79084F0B2306AABA00AB4E92 /* SLLogFileAppender.m in Sources */,
-				79FF5424230A919F00B9D28F /* fishhook.c in Sources */,
+				795F7FCD231385C000C7A50C /* fishhook.c in Sources */,
 				79084EE5230683AA00AB4E92 /* SLLogger.m in Sources */,
 				79084EFE2306A2BD00AB4E92 /* SLLogFileInfo.m in Sources */,
 				79084F072306A80100AB4E92 /* SLCompressLogFileManager.m in Sources */,

@@ -15,6 +15,9 @@
 #import "SLLogQueueFormatter.h"
 #import "SLLogMessage.h"
 
+// Component declare
+// char *loggerComponent __attribute((used, section("__DATA,STComponent "))) = "SLLogger#SLInterfaces#OnNeed#1";
+
 @interface SLLogger()
 @property (nonatomic, strong) NSMutableArray *appenders;
 @property (nonatomic, weak) SLLogFileAppender *fileAppender;
@@ -162,9 +165,7 @@ static NSUInteger _numProcessors;
 
 + (void)initialize
 {
-    
     static dispatch_once_t onceToken;
-    
     dispatch_once(&onceToken, ^{
         _loggingQueue = dispatch_queue_create("smartlogger.logger", NULL);
         _loggingGroup = dispatch_group_create();
@@ -350,7 +351,7 @@ static NSUInteger _numProcessors;
         dispatch_semaphore_wait(_queueSemaphore, DISPATCH_TIME_FOREVER);
         @autoreleasepool {
             [self->queueLock lock];
-            SLLogMessage *mf_msg = [self->messagesQueue lastObject];
+            SLLogMessage *mf_msg = asyncFlag ? [self->messagesQueue lastObject] : logMessage;
             [self->messagesQueue removeObject:mf_msg];
             [self->queueLock unlock];
             [self mf_log:mf_msg];

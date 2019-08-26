@@ -10,6 +10,50 @@
 #define SLInterfaces_h
 #import <Foundation/Foundation.h>
 
+/**
+ * 用于控制全局的日志输出级别的 常量/变量/方法 （建议使用常量）
+ */
+#ifndef SL_GLOBAL_LOG_LEVEL
+#if DEBUG
+static unsigned int SL_GLOBAL_LOG_LEVEL = 31;
+#else
+static unsigned int SL_GLOBAL_LOG_LEVEL = 15;
+#endif
+#endif
+
+/**
+ * 这个宏编译之后为以下格式:
+ *
+ * if (logFlagForThisLogMsg & SLLogLevelInfo) { execute log message }
+ *
+ * 这里使用bit mask来进行日志过滤
+ *
+ * (在Release输出的时候，编译器会进行优化：如果 SL_GLOBAL_LOG_LEVEL定义成常量, 编译器会检查
+ *  if 分支是否可以执行, 如果不能执行，会直接从可执行文件中移除)
+ */
+#define SL_LOG_MAYBE(async, lvl, flg, atag, frmt, ...)                \
+do {                                                                    \
+if(lvl & flg)                                                       \
+[SLLogger log:async                     \
+level:lvl                                  \
+flag:flg                                  \
+file:__FILE__                             \
+function:__PRETTY_FUNCTION__                  \
+line:__LINE__                             \
+tag:atag                                 \
+format:(frmt), ## __VA_ARGS__];             \
+} while(0)
+
+
+/**
+ * 对外提供简单可用的宏
+ */
+#define LogError(tag, frmt, ...)   SL_LOG_MAYBE(NO, SL_GLOBAL_LOG_LEVEL, SLLogFlagError, tag, frmt, ##__VA_ARGS__)
+#define LogWarn(tag, frmt, ...)    SL_LOG_MAYBE(YES, SL_GLOBAL_LOG_LEVEL, SLLogFlagWarning, tag, frmt, ##__VA_ARGS__)
+#define LogInfo(tag, frmt, ...)    SL_LOG_MAYBE(YES, SL_GLOBAL_LOG_LEVEL, SLLogFlagInfo, tag, frmt, ##__VA_ARGS__)
+#define LogDebug(tag, frmt, ...)   SL_LOG_MAYBE(YES, SL_GLOBAL_LOG_LEVEL, SLLogFlagDebug, tag, frmt, ##__VA_ARGS__)
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 /// Log flags for tagging logs
