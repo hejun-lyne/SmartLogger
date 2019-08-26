@@ -30,7 +30,8 @@ Pod::Spec.new do |spec|
   spec.subspec 'Function' do |ss|
     ss.dependency 'smartlogger/Core'
     ss.dependency 'smartlogger/fishhook'
-    ss.source_files = 'SmartFramework/Function/*.{h,m,mm}'
+    ss.public_header_files = 'SmartLogger/Function/SLFunctionsWatcher.h'
+    ss.source_files = 'SmartLogger/Function/*.{h,m,mm}'
   end
 
 end

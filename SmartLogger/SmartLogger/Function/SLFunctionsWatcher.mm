@@ -371,6 +371,8 @@ uintptr_t preObjc_msgSend(id self, uintptr_t lr, SEL _cmd, va_list args) {
 // Our replacement objc_msgSend for arm32.
 __attribute__((__naked__))
 static void replacementObjc_msgSend() {
+#if TARGET_IPHONE_SIMULATOR
+#else
     __asm__ volatile (
                       // Make sure it's enabled.
                       // -fsanitize=alignment
@@ -406,8 +408,8 @@ static void replacementObjc_msgSend() {
                       "ldr r12, [r12]\n"
                       "bx r12\n"
                       );
+#endif
 }
-
 #endif
 
 __attribute__((constructor))
