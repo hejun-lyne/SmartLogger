@@ -420,7 +420,10 @@ extern "C" void WatcherSetup() {
     classMap = HMCreate(&pointerEquality, &pointerHash);
     selsSet = HMCreate(&pointerEquality, &pointerHash);
     
+#if TARGET_IPHONE_SIMULATOR
+#else
     rebind_symbols((struct rebinding[1]){{"objc_msgSend", (void *)replacementObjc_msgSend, (void **)&orig_objc_msgSend}}, 1);
+#endif
 }
 
 @implementation SLFunctionsWatcher

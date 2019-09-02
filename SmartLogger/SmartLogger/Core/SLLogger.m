@@ -351,7 +351,7 @@ static NSUInteger _numProcessors;
         dispatch_semaphore_wait(_queueSemaphore, DISPATCH_TIME_FOREVER);
         @autoreleasepool {
             [self->queueLock lock];
-            SLLogMessage *mf_msg = asyncFlag ? [self->messagesQueue lastObject] : logMessage;
+            SLLogMessage *mf_msg = asyncFlag ? [self->messagesQueue firstObject] : logMessage;
             [self->messagesQueue removeObject:mf_msg];
             [self->queueLock unlock];
             [self mf_log:mf_msg];
