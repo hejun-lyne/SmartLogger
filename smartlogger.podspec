@@ -15,8 +15,8 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'All' do |ss|
     ss.dependency 'smartlogger/Core'
-    ss.dependency 'smartlogger/fishhook'
-    ss.dependency 'smartlogger/Function'
+    #ss.dependency 'smartlogger/fishhook'
+    #ss.dependency 'smartlogger/Function'
   end
 
   spec.subspec 'Core' do |ss|
