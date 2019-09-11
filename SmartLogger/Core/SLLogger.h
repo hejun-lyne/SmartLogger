@@ -49,6 +49,11 @@ static void * const SLGlobalLoggingQueueIdentityKey = (void *)&SLGlobalLoggingQu
  */
 + (void)removeAllAppenders;
 
+/**
+ * Write all cache logs
+ */
++ (void)flush;
+
 @end
 
 NS_ASSUME_NONNULL_END
