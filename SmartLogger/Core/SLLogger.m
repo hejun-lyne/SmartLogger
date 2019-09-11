@@ -352,9 +352,13 @@ static NSUInteger _numProcessors;
         @autoreleasepool {
             [self->queueLock lock];
             SLLogMessage *mf_msg = asyncFlag ? [self->messagesQueue firstObject] : logMessage;
-            [self->messagesQueue removeObject:mf_msg];
-            [self->queueLock unlock];
-            [self mf_log:mf_msg];
+            if (mf_msg != nil) {
+                [self->messagesQueue removeObject:mf_msg];
+                [self->queueLock unlock];
+                [self mf_log:mf_msg];
+            } else {
+                [self->queueLock unlock];
+            }
         }
     };
     
