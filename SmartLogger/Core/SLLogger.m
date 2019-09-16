@@ -406,9 +406,7 @@ static NSUInteger _numProcessors;
 
 - (void)flushAppenders
 {
-    dispatch_sync(_loggingQueue, ^{ @autoreleasepool {
-        [self mf_flushAppenders];
-    } });
+    [self mf_flushAppenders];
 }
 
 #pragma mark - Logging Thread
@@ -562,13 +560,9 @@ static NSUInteger _numProcessors;
 {
     for (SLLogAppenderNode *appenderNode in self.appenders) {
         if ([appenderNode->_appender respondsToSelector:@selector(flush)]) {
-            // dispatch_group_async(_loggingGroup, appenderNode->_loggingQueue, ^{ @autoreleasepool {
-                [appenderNode->_appender flush];
-            // } });
+            [appenderNode->_appender flush];
         }
     }
-    
-    dispatch_group_wait(_loggingGroup, DISPATCH_TIME_FOREVER);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
