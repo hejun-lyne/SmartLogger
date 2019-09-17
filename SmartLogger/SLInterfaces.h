@@ -98,10 +98,6 @@ typedef struct SLFileLoggerConfig {
      */
     unsigned long long diskQuota;
     /**
-     * 指定日志文件目录，传空则由组件自行决定
-     */
-    const char * _Nullable directory;
-    /**
      * 日志文件的归档频率，比如24小时
      * optional
      * (in seconds)

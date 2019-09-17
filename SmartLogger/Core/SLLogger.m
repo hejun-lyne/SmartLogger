@@ -48,26 +48,35 @@
 + (void)setFileLoggerConfig:(SLFileLoggerConfig)fileLoggerConfig
 {
     SLLogger *logger = [self shared];
-    // make a new file appender
-    [logger removeAppender:logger.fileAppender];
-    logger.fileAppender = nil;
+    SLCompressLogFileManager *fm = logger.fileAppender.logFileManager;
     
-    NSString *logDirectory = fileLoggerConfig.directory ? [NSString stringWithUTF8String:fileLoggerConfig.directory] : nil;
-    SLCompressLogFileManager *fm = [[SLCompressLogFileManager alloc] initWithLogsDirectory:logDirectory];
+    // create file manager
+    if (fm == nil) {
+        // just update configuration
+        fm = [[SLCompressLogFileManager alloc] initWithLogsDirectory:nil];
+    }
+    
+    // update config
     fm.maximumNumberOfLogFiles = fileLoggerConfig.maxNumberOfFiles;
     fm.logFilesDiskQuota = fileLoggerConfig.diskQuota;
     fm.compressBlock = logger.archiveCompressBlock;
     
-    SLLogFileAppender *fileAppender = [[SLLogFileAppender alloc] initWithLogFileManager:fm];
+    SLLogFileAppender *fileAppender = logger.fileAppender;
+    
+    // create new file appender
+    if (fileAppender == nil) {
+        fileAppender = [[SLLogFileAppender alloc] initWithLogFileManager:fm];
+        if (fileLoggerConfig.level <= 0) {
+            [logger addAppender:fileAppender];
+        } else {
+            [logger addAppender:fileAppender withLevel:fileLoggerConfig.level];
+        }
+        logger.fileAppender = fileAppender;
+    }
+    
+    // update config
     fileAppender.maximumFileSize = fileLoggerConfig.maxFileSize;
     fileAppender.rollingFrequency = fileLoggerConfig.rollingFrequency;
-    
-    if (fileLoggerConfig.level <= 0) {
-        [logger addAppender:fileAppender];
-    } else {
-        [logger addAppender:fileAppender withLevel:fileLoggerConfig.level];
-    }
-    logger.fileAppender = fileAppender;
 }
 
 + (void)flush
@@ -141,6 +150,13 @@
     SLTTYLogAppender *ttyLogger = [[SLTTYLogAppender alloc] init];
     ttyLogger.logFormatter = [[SLLogQueueFormatter alloc] initWithMode:SLLogQueueFormatterModeAlone];
     [self addAppender:ttyLogger];
+    
+    // Default file appender
+    SLCompressLogFileManager *fm = [[SLCompressLogFileManager alloc] initWithLogsDirectory:nil];
+    fm.compressBlock = self.archiveCompressBlock;
+    SLLogFileAppender *fileAppender = [[SLLogFileAppender alloc] initWithLogFileManager:fm];
+    [self addAppender:fileAppender];
+    self.fileAppender = fileAppender;
 }
 
 #pragma mark - ATHLogger Implementation
