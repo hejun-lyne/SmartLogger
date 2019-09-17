@@ -44,17 +44,7 @@
     NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
     NSAssert(![self isOnInternalLoggerQueue], @"MUST access ivar directly, NOT via self.* syntax.");
     
-    dispatch_queue_t globalLoggingQueue = [SLLogger globalLoggingQueue];
-    
-    __block id <SLLogFormatter> result;
-    
-    dispatch_sync(globalLoggingQueue, ^{
-        dispatch_sync(self->_loggingQueue, ^{
-            result = self->_logFormatter;
-        });
-    });
-    
-    return result;
+    return _logFormatter;
 }
 
 - (void)setLogFormatter:(id <SLLogFormatter>)logFormatter
